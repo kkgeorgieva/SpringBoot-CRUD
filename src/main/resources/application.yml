@@ -1,0 +1,14 @@
+# spring:
+#  datasource:
+#     username: root
+#     password: cherry22
+#     url: jdbc:mysql://localhost:3306/cookbook_1
+#     driver-class-name: com.mysql.cj.jdb.Driver
+
+#  jpa:
+#     show-sql: true
+#     hibernate:
+#      ddl-auto: update
+#     properties:
+#      hibernate:
+#       dialect: org.hibernate.dialect.MySQLDialect
