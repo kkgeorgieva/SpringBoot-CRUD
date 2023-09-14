@@ -1,5 +1,4 @@
 package com.dxc.crud.controller;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,36 +17,30 @@ import com.dxc.crud.service.IngredientService;
 public class IngredientController {
     
     @Autowired
-    private IngredientService service;
+    private IngredientService ingredientService;
+
+    @GetMapping("/ingredients")
+    public List<Ingredient> getAllIngredients(){
+        return ingredientService.getAllIngredients();
+    }
+
+    @GetMapping("/ingredient/{id}")
+    public Ingredient getIngredientById(@PathVariable int id){
+        return ingredientService.getIngredientById(id);
+    }
 
     @PostMapping("/addIngredient")
     public Ingredient addIngredient(@RequestBody Ingredient ingredient){
-        ingredient.setIngredientId(0);
-        return service.saveIngredient(ingredient);
-    }
-    @PostMapping("/addIngredients")
-    public List<Ingredient> addIngredients(@RequestBody List<Ingredient> ingredients){
-        return service.saveIngredients(ingredients);
-    }
-    @GetMapping("/ingredients")
-    public List<Ingredient> findAllIngredients(){
-        return service.getIngredients();
-    }
-    @GetMapping("/ingredient/{id}")
-    public Ingredient findIngredientById(@PathVariable int id){
-        return service.getIngredientById(id);
-    }
-     @GetMapping("/ingredient/{name}")
-    public Ingredient findIngredientByName(@PathVariable String name){
-        return service.getIngredientByName(name);
-    }
-    @PutMapping("/update")
-    public Ingredient updateIngredient(@RequestBody Ingredient ingredient){
-        return service.updateIngredient(ingredient);
-    }
-    @DeleteMapping("/delete/{id}")
-    public String deleteIngredient(@PathVariable int id){
-        return service.deleteIngredient(id);
+       return  ingredientService.addIngredient(ingredient);
     }
 
+    @PutMapping("/updateIngredient")
+    public void updateIngredient(@RequestBody Ingredient ingredient) {
+        ingredientService.updateIngredient(ingredient);
+    }
+
+    @DeleteMapping("/deleteIngredient/{id}")
+    public void deleteIngredient(@PathVariable int id) {
+        ingredientService.deleteIngredient(id);
+    }
 }
