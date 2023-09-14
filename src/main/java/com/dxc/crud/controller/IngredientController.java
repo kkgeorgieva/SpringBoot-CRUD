@@ -35,12 +35,12 @@ public class IngredientController {
     }
 
     @PutMapping("/updateIngredient")
-    public void updateIngredient(@RequestBody Ingredient ingredient) {
-        ingredientService.updateIngredient(ingredient);
+    public Ingredient updateIngredient(@RequestBody Ingredient ingredient) {
+        return ingredientService.updateIngredient(ingredient);
     }
 
     @DeleteMapping("/deleteIngredient/{id}")
-    public void deleteIngredient(@PathVariable int id) {
-        ingredientService.deleteIngredient(id);
+    public String deleteIngredient(@PathVariable int id) {
+        return ingredientService.deleteIngredient(id);
     }
 }
