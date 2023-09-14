@@ -22,6 +22,7 @@ public class IngredientController {
 
     @PostMapping("/addIngredient")
     public Ingredient addIngredient(@RequestBody Ingredient ingredient){
+        ingredient.setIngredientId(0);
         return service.saveIngredient(ingredient);
     }
     @PostMapping("/addIngredients")
