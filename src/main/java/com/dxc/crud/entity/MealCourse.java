@@ -19,9 +19,9 @@ public class MealCourse {
     @Column(name = "course_name")
     private String mealName;
 
-   /*  @OneToMany(mappedBy = "mealCourse")
+    @OneToMany(mappedBy = "mealCourse")
     private Set<Recipe> recipes;
-    */
+    
 
     //Default constructor 
     public MealCourse(){
