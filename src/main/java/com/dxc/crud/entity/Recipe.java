@@ -24,11 +24,22 @@ public class Recipe {
     @Column(name = "cook_time")
     private String cookTime;
     @ManyToOne
-    @JoinColumn(name = "meal_course_id")
+    @JoinColumn(name = "course_id")
     private MealCourse mealCourse;
 
     @Column(name = "Instructions")
     private String instructions;
+
+    public Recipe(){
+
+    }
+
+    public Recipe(String recipeName, String cookTime, MealCourse mealCourse, String instructions){
+        this.recipeName = recipeName;
+        this.cookTime = cookTime;
+        this. mealCourse = mealCourse;
+        this.instructions = instructions;
+    }
 
     public int getId(){
         return id;
@@ -59,5 +70,6 @@ public class Recipe {
     public void setMealCourse(MealCourse mealCourse){
         this. mealCourse = mealCourse;
     }
+    
 
 }
